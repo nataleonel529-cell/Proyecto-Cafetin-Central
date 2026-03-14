@@ -1,0 +1,60 @@
+:root {
+    --rosa: #F8C8DC; --menta: #B2D8D8; --salmon: #FFB7B2;
+    --celeste: #D4F0F0; --crema: #FFF9F0; --oscuro: #2C2C2C;
+    --blanco-soft: rgba(255, 255, 255, 0.9);
+}
+
+body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--crema); color: var(--oscuro); overflow-x: hidden; }
+.hidden { display: none !important; }
+
+/* TIPOGRAFÍA */
+.tipo-broken {
+    font-family: 'Playfair Display', serif; 
+    font-size: 2.5rem; text-transform: uppercase;
+    line-height: 0.9; letter-spacing: -2px; 
+    transform: scaleY(1.2); margin: 0;
+}
+.tipo-broken.small { font-size: 1.4rem; margin-bottom: 20px; }
+
+/* LAYOUT */
+.pantalla { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; position: relative; }
+.layout-app { display: grid; grid-template-columns: 1fr 340px; gap: 20px; width: 100%; max-width: 1100px; height: 85vh; }
+
+.bg-rosa { background-color: var(--rosa); }
+.bg-menta { background-color: var(--menta); }
+.bg-salmon { background-color: var(--salmon); }
+.bg-celeste { background-color: var(--celeste); }
+
+.panel-blanco { background: var(--blanco-soft); border-radius: 35px; padding: 25px; display: flex; flex-direction: column; }
+.tarjeta-soft { background: white; border-radius: 40px; padding: 40px; width: 100%; max-width: 420px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+
+/* COMPONENTES MENÚ */
+.grid-menu { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; padding-bottom: 20px; }
+.card-item { background: white; border-radius: 25px; padding: 12px; text-align: center; border: 1px solid #f0f0f0; }
+.card-item img { width: 100%; height: 100px; object-fit: cover; border-radius: 20px; background: #eee; margin-bottom: 10px; }
+
+/* BOTONES */
+.btn-dark { background: var(--oscuro); color: white; border-radius: 25px; padding: 12px; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+.btn-outline { background: none; border: 2px solid var(--oscuro); color: var(--oscuro); border-radius: 25px; padding: 10px; cursor: pointer; font-weight: bold; text-transform: uppercase; font-size: 0.75rem; }
+.btn-text { background: none; border: none; text-decoration: underline; cursor: pointer; opacity: 0.6; font-weight: bold; }
+.full { width: 100%; margin-top: 10px; }
+
+/* INPUTS */
+input { width: 100%; padding: 12px; margin: 6px 0; border-radius: 12px; border: 1px solid #ddd; outline: none; box-sizing: border-box; }
+
+/* RESEÑAS e HISTORIAL */
+.resena-item { background: white; padding: 15px; border-radius: 20px; margin-bottom: 10px; border: 1px solid #eee; text-align: left; }
+.resena-user { font-weight: bold; font-size: 0.7rem; color: #888; display: block; text-transform: uppercase; }
+.panel-input-resena { display: flex; gap: 10px; margin-top: 15px; }
+
+/* UTILIDADES */
+.navbar-soft { width: 100%; max-width: 1100px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.scroll-v { max-height: 300px; overflow-y: auto; padding-right: 5px; }
+.scroll-v-main { overflow-y: auto; height: 100%; padding-right: 15px; }
+.divisor { border-top: 2px dashed #ddd; margin: 20px 0; }
+.esquina-derecha { position: absolute; top: 25px; right: 30px; }
+.puntos-pill { background: white; padding: 8px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-right: 10px; }
+
+/* MODAL */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+.modal-box { background: white; padding: 40px; border-radius: 40px; text-align: center; max-width: 320px; }

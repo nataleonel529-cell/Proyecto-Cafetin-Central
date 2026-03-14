@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CAFETÍN CENTRAL - UCV</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="custom-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <p id="modal-mensaje"></p>
+            <button class="btn-dark" onclick="cerrarModal()">ACEPTAR</button>
+        </div>
+    </div>
+
+    <section id="vista-login" class="pantalla bg-rosa">
+        <div class="tarjeta-soft">
+            <h1 class="tipo-broken">CAFETÍN<br>CENTRAL</h1>
+            <div class="form-acceso" style="margin-top: 30px;">
+                <input type="text" id="user-field" placeholder="Usuario">
+                <input type="password" id="pass-field" placeholder="Contraseña">
+                <button class="btn-dark full" onclick="intentarLogin()">INGRESAR</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="vista-cliente" class="pantalla bg-menta hidden">
+        <header class="navbar-soft">
+            <div class="user-info">
+                <span class="puntos-pill">⭐ 150 puntos</span>
+                <span class="puntos-pill">🛒 <b id="cart-qty">0</b> Productos</span>
+            </div>
+            <div class="esquina-derecha">
+                <button class="btn-text" onclick="cerrarSesion()">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <div class="layout-app">
+            <main class="panel-blanco scroll-v-main">
+                <h2 class="tipo-broken small">Menú Digital</h2>
+                <div id="contenedor-menu"></div>
+                
+                <div class="divisor"></div>
+                <h3 class="tipo-broken" style="font-size: 1.2rem;">RESEÑAS</h3>
+                <div id="contenedor-resenas"></div>
+                <div class="panel-input-resena">
+                    <input type="text" id="input-resena" placeholder="Escribe tu opinión...">
+                    <button class="btn-dark" onclick="publicarResena()">PUBLICAR</button>
+                </div>
+            </main>
+
+            <aside class="panel-blanco">
+                <div id="seccion-carrito">
+                    <h3>MI PEDIDO</h3>
+                    <div id="lista-carrito" class="scroll-v"></div>
+                    <div class="divisor"></div>
+                    <p>TOTAL:</p>
+                    <h2 id="total-monto" class="tipo-broken" style="font-size:2rem">$0.00</h2>
+                    <button class="btn-dark full" onclick="irADatos()">CONTINUAR</button>
+                    <button class="btn-outline full" onclick="animarCancelar()">VACIAR</button>
+                    <button class="btn-text full" onclick="verHistorial(true)" style="margin-top:10px">VER COMPRAS</button>
+                </div>
+
+                <div id="seccion-datos-usuario" class="hidden">
+                    <h3>DATOS DE PAGO</h3>
+                    <input type="text" id="pago-nombre" placeholder="Nombre completo">
+                    <input type="text" id="pago-cedula" placeholder="Cédula">
+                    <button class="btn-dark full" onclick="enviarPedidoFinal()">ENVIAR A CAJA</button>
+                    <button class="btn-text full" onclick="volverAlCarrito()">Volver</button>
+                </div>
+
+                <div id="seccion-historial" class="hidden">
+                    <h3>HISTORIAL</h3>
+                    <div id="lista-historial-detallado" class="scroll-v"></div>
+                    <div class="divisor"></div>
+                    <button class="btn-dark full" onclick="verHistorial(false)">CERRAR</button>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <section id="vista-caja" class="pantalla bg-salmon hidden">
+        <div class="esquina-derecha"><button class="btn-text" onclick="cerrarSesion()">Salir</button></div>
+        <div class="tarjeta-soft">
+            <h2 class="tipo-broken small">CAJA</h2>
+            <p id="caja-info-cliente" style="font-weight: bold;"></p>
+            <div id="caja-resumen" class="scroll-v" style="background:#f9f9f9; padding:15px; border-radius:20px; margin:10px 0; text-align: left;"></div>
+            <p>TOTAL POR COBRAR:</p>
+            <h1 id="caja-total" class="tipo-broken">$0.00</h1>
+            <button id="btn-emitir-recibo" class="btn-dark full hidden" onclick="finalizarAtencion()">EMITIR RECIBO</button>
+        </div>
+    </section>
+
+    <section id="vista-admin" class="pantalla bg-celeste hidden">
+        <div class="esquina-derecha"><button class="btn-text" onclick="cerrarSesion()">Salir</button></div>
+        <div class="layout-app">
+            <div class="panel-blanco">
+                <h3 class="tipo-broken" style="font-size:1.5rem">CATÁLOGO</h3>
+                <div id="admin-lista" class="scroll-v"></div>
+                <div class="divisor"></div>
+                <input type="text" id="adm-nombre" placeholder="Nombre">
+                <input type="number" id="adm-precio" placeholder="Precio ($)">
+                <button class="btn-dark full" onclick="crearProducto()">AÑADIR PRODUCTO</button>
+            </div>
+            <div class="panel-blanco">
+                <h3 class="tipo-broken" style="font-size:1.5rem">MODERAR RESEÑAS</h3>
+                <div id="admin-resenas" class="scroll-v"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
